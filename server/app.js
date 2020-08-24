@@ -10,7 +10,6 @@ app.use(express.urlencoded({ extended: true }));
 
 const path = process.env.MY_VARIABLE||"./data.json"
 
-
 app.get("/api/tickets", async (req, res) => {
     const content = await fs.readFile("./data.json");
     const tickets = JSON.parse(content);

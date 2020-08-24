@@ -6,8 +6,8 @@ function HiddenCounter(props) {
 
     return (
     <div>
-        <p>hidden tickets</p>
-        <div id={"hideTicketsCounter"}>{props.numberOfHidden}</div>
+        <span>hidden tickets</span>
+        <span id={"hideTicketsCounter"}>{props.numberOfHidden}</span>
     </div>
     )
 }

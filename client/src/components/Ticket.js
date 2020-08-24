@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import HideButton from './HideButton';
 
 function Ticket(props) {
 
+    const [display, setDisplay] = useState("block")
+    const [className, setClassName] = useState("ticket")
+
     return (
-        <div className={"ticket"}>
+        <div 
+        className={className}
+        style={{display: display}}>
             <HideButton
-            ticketIndex={props.key}
-            partialList={props.partialList}
-            setPartialList={props.setPartialList}
-            tickets={props.tickets}
-            setTickets={props.setTickets}
             numberOfHidden={props.numberOfHidden}
-            setNumberOfHidden={props.setNumberOfHidden}>
+            setNumberOfHidden={props.setNumberOfHidden}
+            setDisplay={setDisplay}
+            setClassName={setClassName}
+            toRestore={props.toRestore}
+            setToRestore={props.setToRestore}>
             </HideButton>
 
             <h1>{props.title}</h1>

@@ -5,12 +5,13 @@ import logo from './logo.svg';
 import Ticket from './components/Ticket'
 import Search from './components/Search';
 import HiddenCounter from './components/HiddenCounter';
+import RestoreButton from './components/RestoreButton';
 
 function App() {
 
+  const [toRestore, setToRestore] = useState(false)
   const [tickets, setTickets] = useState([]);
-  const [searchText, setSearchText] = useState([]);
-  const [partialList, setPartialList] = useState([]);
+  const [searchText, setSearchText]  = useState([]);
   const [numberOfHidden, setNumberOfHidden] = useState(0);
 
   useEffect(() => {
@@ -20,15 +21,17 @@ function App() {
     }, [searchText]
   )
 
-
-
   return (
     <main>
+      <RestoreButton
+        setNumberOfHidden={setNumberOfHidden}
+        toRestore={toRestore}
+        setToRestore={setToRestore}>
+      </RestoreButton>
       <HiddenCounter
       numberOfHidden={numberOfHidden}>
       </HiddenCounter>
       <Search
-        searchText={searchText}
         setSearchText={setSearchText}>  
       </Search>
 
@@ -40,12 +43,10 @@ function App() {
             userEmail={ticket["userEmail"]}
             creationTime={ticket["creationTime"]}
             labels={ticket["labels"]}
-            partialList={partialList}
-            setPartialList={setPartialList}
-            tickets={tickets}
-            setTickets={setTickets}
             numberOfHidden={numberOfHidden}
-            setNumberOfHidden={setNumberOfHidden}>
+            setNumberOfHidden={setNumberOfHidden}
+            toRestore={toRestore}
+            setToRestore={setToRestore}>
           </Ticket>
         ))}
     </main>
