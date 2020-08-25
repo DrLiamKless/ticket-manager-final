@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Ticket from './Ticket';
+import React from 'react';
+import IconButton from '@material-ui/core/IconButton';
+import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
+import Badge from '@material-ui/core/Badge';
+
 
 function RestoreButton(props) {
 
@@ -9,9 +11,12 @@ function RestoreButton(props) {
     }
 
     return (    
-        <button id={"restoreHideTickets"} onClick={restoreAll}>
-        restore
-        </button>
+        <IconButton onClick={restoreAll} id={"restoreHideTickets"}>
+             <Badge>
+                <VisibilityOutlinedIcon>
+                </VisibilityOutlinedIcon>
+            </Badge>
+        </IconButton>
     )
 }
 
