@@ -52,7 +52,7 @@ function Ticket(props) {
                             {props.content}
                         </Typography>
                     </AccordionDetails>
-                        <p>User's Email: <a href={"#"} target={"_blank"}> {props.userEmail}</a> | {date} | {time}</p>
+                        <p>{props.userEmail} | {date} | {time}</p>
                 </Accordion>
         </div>
     )
