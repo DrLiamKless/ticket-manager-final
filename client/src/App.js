@@ -23,6 +23,7 @@ function App() {
 
   return (
     <main>
+      <section id={"controlSection"}>
       <RestoreButton
         setNumberOfHidden={setNumberOfHidden}
         toRestore={toRestore}
@@ -34,21 +35,23 @@ function App() {
       <Search
         setSearchText={setSearchText}>  
       </Search>
-
-      {tickets.map((ticket, i) => (
-          <Ticket
-            key={i}
-            title={ticket["title"]}
-            content={ticket["content"]}
-            userEmail={ticket["userEmail"]}
-            creationTime={ticket["creationTime"]}
-            labels={ticket["labels"]}
-            numberOfHidden={numberOfHidden}
-            setNumberOfHidden={setNumberOfHidden}
-            toRestore={toRestore}
-            setToRestore={setToRestore}>
-          </Ticket>
+      </section>
+      <section id={"TicketsSection"}>
+        {tickets.map((ticket, i) => (
+            <Ticket
+              key={i}
+              title={ticket["title"]}
+              content={ticket["content"]}
+              userEmail={ticket["userEmail"]}
+              creationTime={ticket["creationTime"]}
+              labels={ticket["labels"]}
+              numberOfHidden={numberOfHidden}
+              setNumberOfHidden={setNumberOfHidden}
+              toRestore={toRestore}
+              setToRestore={setToRestore}>
+            </Ticket>
         ))}
+          </section>
     </main>
   );
 }
