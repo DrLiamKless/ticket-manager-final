@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import IconButton from '@material-ui/core/IconButton';
+import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 function HideButton(props) {
 
@@ -7,7 +9,7 @@ function HideButton(props) {
             props.setNumberOfHidden(props.numberOfHidden + 1);
             props.setClassName("hiddenTicket");
     }
-
+    
     useEffect(() => {
         props.setDisplay("block");
         props.setNumberOfHidden(0);
@@ -16,9 +18,12 @@ function HideButton(props) {
       )
 
     return (    
-        <button
+        <IconButton
             className={"hideTicketButton"}
-            onClick={toHide}>hide</button>
+            aria-label="hide"
+            onClick={toHide}>
+            <VisibilityOffIcon/>
+            </IconButton>
     )
 }
 

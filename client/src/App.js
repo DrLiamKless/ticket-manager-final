@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import './App.css';
-import logo from './logo.svg';
 import Ticket from './components/Ticket'
-import Search from './components/Search';
-import HiddenCounter from './components/HiddenCounter';
-import RestoreButton from './components/RestoreButton';
+import Navbar from './components/Navbar';
+
+
+
+
 
 function App() {
 
@@ -21,21 +22,24 @@ function App() {
     }, [searchText]
   )
 
+  const onInputChange = event => {
+    setSearchText(event.target.value)
+}
+
   return (
     <main>
-      <RestoreButton
+      <section id={"navBar"}>
+        <Navbar
+        onInputChange={onInputChange}
+        numberOfHidden={numberOfHidden}
         setNumberOfHidden={setNumberOfHidden}
         toRestore={toRestore}
         setToRestore={setToRestore}>
-      </RestoreButton>
-      <HiddenCounter
-      numberOfHidden={numberOfHidden}>
-      </HiddenCounter>
-      <Search
-        setSearchText={setSearchText}>  
-      </Search>
 
-      {tickets.map((ticket, i) => (
+        </Navbar>
+      </section>
+      <section id={"ticketsSection"}>
+        {tickets.map((ticket, i) => (
           <Ticket
             key={i}
             title={ticket["title"]}
@@ -49,6 +53,7 @@ function App() {
             setToRestore={setToRestore}>
           </Ticket>
         ))}
+      </section>
     </main>
   );
 }
