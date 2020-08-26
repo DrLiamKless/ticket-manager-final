@@ -63,3 +63,14 @@ Use a popular style guide - Airbnb
 * Visual creativity, use css to make this app look awesome 💅🏿
 * Code quality: Variable naming, meaningful comments, logic separation into functions
 * Git usage: commit messages, and overall git usage flow
+
+
+## New Features:
+* Acordion Styling to save space
+* sticky Navbar with icon Buttons:
+- Sort by Date Button
+- To show only Undone projects Button - resets when click again
+- To show only Done projects Button - resets when click again
+- iconed Restore button 
+* checkbox - sets property "done" to a ticket. saves after refresh.
+* Tests for done/undone buttons

@@ -3,28 +3,28 @@ import IconButton from '@material-ui/core/IconButton';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 function HideButton(props) {
+  const toHide = () => {
+    props.setDisplay('none');
+    props.setNumberOfHidden(props.numberOfHidden + 1);
+    props.setClassName('hiddenTicket');
+  };
 
-        const toHide = () => {
-            props.setDisplay("none");
-            props.setNumberOfHidden(props.numberOfHidden + 1);
-            props.setClassName("hiddenTicket");
-    }
-    
-    useEffect(() => {
-        props.setDisplay("block");
-        props.setNumberOfHidden(0);
-        props.setClassName("ticket");
-        }, [props.toRestore]
-      )
+  // UseEffect to restore Classname + style
+  useEffect(() => {
+    props.setDisplay('block');
+    props.setNumberOfHidden(0);
+    props.setClassName('ticket');
+  }, [props.toRestore]);
 
-    return (    
-        <IconButton
-            className={"hideTicketButton"}
-            aria-label="hide"
-            onClick={toHide}>
-            <VisibilityOffIcon/>
-            </IconButton>
-    )
+  return (
+    <IconButton
+      className="hideTicketButton"
+      aria-label="hide"
+      onClick={toHide}
+    >
+      <VisibilityOffIcon />
+    </IconButton>
+  );
 }
 
-export default HideButton
+export default HideButton;
