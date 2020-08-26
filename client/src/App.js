@@ -4,20 +4,28 @@ import './App.css';
 import Ticket from './components/Ticket'
 import Navbar from './components/Navbar';
 
-
-
-
-
 function App() {
 
   const [toRestore, setToRestore] = useState(false)
-  const [tickets, setTickets] = useState([]);
+  const [ticketsToShow, setTicketsToShow] = useState([]);
+  const [allTickets, setAllTickets] = useState()
+  const [doneTickets, setDoneTickets] = useState([]);
+  const [undoneTickets, setUndoneTickets] = useState ([])
   const [searchText, setSearchText]  = useState([]);
   const [numberOfHidden, setNumberOfHidden] = useState(0);
-
+  const [numberOfDone, setNumberOfDone] = useState(0);
+  const [numberOfUndone, setNumberOfUndone] = useState(0)
+  
   useEffect(() => {
     axios.get(`/api/tickets?searchText=${searchText}`).then(res => {
-      setTickets(res.data);
+      setAllTickets(res.data)
+      setTicketsToShow(res.data);
+      const doneTickets = res.data.filter(ticket => (ticket["done"]))
+      const undoneTickets = res.data.filter(ticket => (!ticket["done"]))
+      setDoneTickets(doneTickets);
+      setUndoneTickets(undoneTickets);
+      setNumberOfDone(doneTickets.length);
+      setNumberOfUndone(undoneTickets.length);
     });
     }, [searchText]
   )
@@ -30,18 +38,27 @@ function App() {
     <main>
       <section id={"navBar"}>
         <Navbar
-        onInputChange={onInputChange}
-        numberOfHidden={numberOfHidden}
-        setNumberOfHidden={setNumberOfHidden}
-        toRestore={toRestore}
-        setToRestore={setToRestore}>
-
+          onInputChange={onInputChange}
+          numberOfHidden={numberOfHidden}
+          setNumberOfHidden={setNumberOfHidden}
+          toRestore={toRestore}
+          setToRestore={setToRestore}
+          numberOfDone={numberOfDone}
+          numberOfUndone={numberOfUndone}
+          ticketsToShow={ticketsToShow}
+          setTicketsToShow={setTicketsToShow}
+          doneTickets={doneTickets}
+          undoneTickets={undoneTickets}
+          allTickets={allTickets}
+          >
         </Navbar>
       </section>
       <section id={"ticketsSection"}>
-        {tickets.map((ticket, i) => (
+        {ticketsToShow.map((ticket, i) => (
           <Ticket
             key={i}
+            index={i}
+            id={ticket["id"]}
             title={ticket["title"]}
             content={ticket["content"]}
             userEmail={ticket["userEmail"]}
@@ -50,7 +67,19 @@ function App() {
             numberOfHidden={numberOfHidden}
             setNumberOfHidden={setNumberOfHidden}
             toRestore={toRestore}
-            setToRestore={setToRestore}>
+            setToRestore={setToRestore}
+            ticketsToShow={ticketsToShow}
+            isDoneProp={ticket["done"]}
+            doneTickets={doneTickets}
+            setDoneTickets={setDoneTickets}
+            undoneTickets={undoneTickets}
+            setUndoneTickets={setUndoneTickets}
+            setTicketsToShow={setTicketsToShow}
+            numberOfDone={numberOfDone}
+            numberOfUndone={numberOfUndone}
+            setNumberOfDone={setNumberOfDone}
+            setNumberOfUndone={setNumberOfUndone}
+            setAllTickets={setAllTickets}>
           </Ticket>
         ))}
       </section>

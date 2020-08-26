@@ -13,7 +13,11 @@ code {
 }
 
 #wixTitle{
-  margin-left: 20vw;
+  margin-left: 15vw;
+}
+
+#restoreContainer {
+  margin-left: auto;
 }
 
 .additionsToBar{

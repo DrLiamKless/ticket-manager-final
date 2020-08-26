@@ -1,20 +1,21 @@
 import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
-import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 import Badge from '@material-ui/core/Badge';
+import RestoreIcon from '@material-ui/icons/Restore';
 
 
 function RestoreButton(props) {
 
-    async function restoreAll() {
+    function restoreAll() {
         props.setToRestore(!props.toRestore);
+        props.setTicketsToShow(props.allTickets)
     }
 
     return (    
         <IconButton onClick={restoreAll} id={"restoreHideTickets"}>
              <Badge>
-                <VisibilityOutlinedIcon>
-                </VisibilityOutlinedIcon>
+                <RestoreIcon>
+                </RestoreIcon>
             </Badge>
         </IconButton>
     )

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState } from 'react';
 import RestoreButton from './RestoreButton';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -9,9 +9,15 @@ import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
 import SearchIcon from '@material-ui/icons/Search';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import ShowDone from './ShowDone';
+import ShowUndone from './ShowUndone';
+
 
 
 function Navbar(props) {
+
+  const [toShowDone, setToShowDone] = useState(false);
+  const [toShowUndone, setToShowUndone] = useState(false);
 
     const useStyles = makeStyles((theme) => ({
         grow: {
@@ -94,14 +100,35 @@ function Navbar(props) {
                   </Badge>
                 </IconButton>
             </div>
-                <RestoreButton 
+                <ShowDone
+                  setTicketsToShow={props.setTicketsToShow}
+                  doneTickets={props.doneTickets}
+                  allTickets={props.allTickets}
+                  toShowDone={toShowDone}
+                  setToShowDone={setToShowDone}
+                  setToShowUndone={setToShowUndone}>
+                </ShowDone>
+                <ShowUndone
+                  setTicketsToShow={props.setTicketsToShow}
+                  undoneTickets={props.undoneTickets}
+                  allTickets={props.allTickets}
+                  toShowUndone={toShowUndone}
+                  setToShowUndone={setToShowUndone}
+                  setToShowDone={setToShowDone}>
+                </ShowUndone>
+            <Typography id={'wixTitle'}className={classes.title} variant="h6" noWrap>
+              Wix Ticket Manager
+            </Typography>
+            <Typography id={"restoreContainer"}>
+            <RestoreButton
                       aria-label="hiddenCounter" color="inherit"
                       setNumberOfHidden={props.setNumberOfHidden}
                       toRestore={props.toRestore}
-                      setToRestore={props.setToRestore}>
-                </RestoreButton>
-            <Typography id={'wixTitle'}className={classes.title} variant="h6" noWrap>
-              Wix Ticket Manager
+                      setToRestore={props.setToRestore}
+                      ticketsToShow={props.ticketsToShow}
+                      setTicketsToShow={props.setTicketsToShow}
+                      allTickets={props.allTickets}>
+            </RestoreButton>
             </Typography>
           </Toolbar>
        </AppBar>

@@ -29,8 +29,8 @@ app.get("/api/tickets", async (req, res) => {
 app.post("/api/tickets/:ticketId/done", async (req, res) => {
     const content = await fs.readFile("./data.json");
     const tickets = JSON.parse(content);
-    tickets.forEach((ticket, i) => {
-        if(ticket["id"] = req.params.ticketId) {
+    tickets.forEach(ticket => {
+        if(`${ticket["id"]}` === req.params.ticketId) {
             ticket["done"] = true
         }
     });
@@ -42,8 +42,8 @@ app.post("/api/tickets/:ticketId/done", async (req, res) => {
 app.post("/api/tickets/:ticketId/undone", async (req, res) => {
     const content = await fs.readFile(path);
     const tickets = JSON.parse(content);
-    tickets.forEach((ticket, i) => {
-        if(ticket["id"] = req.params.ticketId) {
+    tickets.forEach(ticket => {
+        if(`${ticket["id"]}` === req.params.ticketId) {
             ticket["done"] = false
         }
     });
