@@ -77,7 +77,6 @@ function App() {
             numberOfUndone={numberOfUndone}
             setNumberOfDone={setNumberOfDone}
             setNumberOfUndone={setNumberOfUndone}
-            ticketsToShow={ticketsToShow}
             allTickets={allTickets}
             setAllTickets={setAllTickets}
           />

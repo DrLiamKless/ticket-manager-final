@@ -17,7 +17,6 @@ function Navbar(props) {
   const [toShowDone, setToShowDone] = useState(false);
   const [toShowUndone, setToShowUndone] = useState(false);
 
-
   // styles for Navbar
   const useStyles = makeStyles((theme) => ({
     grow: {

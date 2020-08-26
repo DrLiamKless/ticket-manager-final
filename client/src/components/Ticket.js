@@ -13,7 +13,7 @@ function Ticket(props) {
   const [display, setDisplay] = useState('flex');
   const [className, setClassName] = useState('ticket');
 
-  //making the creation Time readable
+  // making the creation Time readable
   const creationTime = new Date(props.creationTime);
   const date = `${creationTime.getDate()}-${(creationTime.getMonth() + 1)}-${creationTime.getFullYear()}`;
   const time = `${creationTime.getHours()}:${creationTime.getMinutes()}:${creationTime.getSeconds()}`;
@@ -76,20 +76,20 @@ function Ticket(props) {
               </Typography>
             )}
           />
-          <Label 
+          <Label
             labels={props.labels}
             allTickets={props.allTickets}
             setTicketsToShow={props.setTicketsToShow}
-            ticketsToShow={props.ticketsToShow}>
-          </Label>
+            ticketsToShow={props.ticketsToShow}
+          />
           <HideButton
             numberOfHidden={props.numberOfHidden}
             setNumberOfHidden={props.setNumberOfHidden}
             setDisplay={setDisplay}
             setClassName={setClassName}
             toRestore={props.toRestore}
-            setToRestore={props.setToRestore}>
-          </HideButton>
+            setToRestore={props.setToRestore}
+          />
         </AccordionSummary>
         <AccordionDetails>
           <Typography color="textSecondary">

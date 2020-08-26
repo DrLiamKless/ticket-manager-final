@@ -3,7 +3,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import CloseIcon from '@material-ui/icons/Close';
 
-
 // a function thats loading the unone list
 function ShowUndone(props) {
   const loadUndone = () => {

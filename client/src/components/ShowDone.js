@@ -3,7 +3,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import DoneIcon from '@material-ui/icons/Done';
 
-
 // a function thats loading the Done list
 function ShowDone(props) {
   const loadDone = () => {

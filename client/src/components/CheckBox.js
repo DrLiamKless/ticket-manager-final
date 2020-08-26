@@ -22,7 +22,7 @@ function CheckBox(props) {
           props.setNumberOfUndone(undoneTickets.length);
         }),
       );
-    } else { //if checkBox is not checked
+    } else { // if checkBox is not checked
       axios.post(`/api/tickets/${props.id}/undone`).then(
         axios.get('/api/tickets').then((res) => {
           const allTickets = res.data;
