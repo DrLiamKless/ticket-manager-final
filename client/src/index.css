@@ -36,11 +36,11 @@ body {
   margin-right: 1rem;
   background-color: #fccfcf;
   width: max-content;
-  border-radius: 20%;
+  border-radius: 25%;
 }
 
 .label:hover{
-  background-color: #f08383;
+  background-color: #f08383;  
 }
 
 
