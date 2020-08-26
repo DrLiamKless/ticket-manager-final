@@ -11,6 +11,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import ShowDone from './ShowDone';
 import ShowUndone from './ShowUndone';
+import SortByDate from './SortByDate';
 
 
 
@@ -116,6 +117,10 @@ function Navbar(props) {
                   setToShowUndone={setToShowUndone}
                   setToShowDone={setToShowDone}>
                 </ShowUndone>
+                <SortByDate
+                  ticketsToShow={props.ticketsToShow}
+                  setTicketsToShow={props.setTicketsToShow}>
+                </SortByDate>
             <Typography id={'wixTitle'}className={classes.title} variant="h6" noWrap>
               Wix Ticket Manager
             </Typography>

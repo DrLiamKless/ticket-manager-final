@@ -15,7 +15,7 @@ function Ticket(props) {
 
 
     let creationTime = new Date(props.creationTime)
-    const date = `${creationTime.getFullYear()}-${(creationTime.getMonth() + 1)}-${creationTime.getDate()}`
+    const date = `${creationTime.getDate()}-${(creationTime.getMonth() + 1)}-${creationTime.getFullYear()}`
     const time = `${creationTime.getHours()}:${creationTime.getMinutes()}:${creationTime.getSeconds()}`
 
     
@@ -29,8 +29,8 @@ function Ticket(props) {
                         aria-label="Expand"
                         aria-controls="panel2a-content"
                         id="additional-actions1-header">
+                            
                         <FormControlLabel
-                            style={props.isDoneProp === true ? {textDecoration: "line-through"} : {textDecoration: "none"}}
                             aria-label="Done"
                             onClick={(event) => event.stopPropagation()}
                             onFocus={(event) => event.stopPropagation()}
@@ -48,7 +48,20 @@ function Ticket(props) {
                                     setNumberOfUndone={props.setNumberOfUndone}
                                     setAllTickets={props.setAllTickets}>
                                 </CheckBox>}
-                            label={props.title}
+                            label={
+                                <Typography>
+                                    <h4
+                                        style={props.isDoneProp === true
+                                        ?
+                                        {textDecoration: "line-through"}
+                                        :
+                                        {textDecoration: "none"}}>
+                                        {props.title}
+                                    </h4>
+                                    <p>From: <a href={"#"} target={"_blank"}> {props.userEmail}</a>
+                                       | At: {date} | {time}
+                                    </p>
+                                </Typography>}
                         />
                         <div className={"additionsToBar"}>
                             {props.labels && props.labels.map((label, i) => (
@@ -69,7 +82,6 @@ function Ticket(props) {
                             {props.content}
                         </Typography>
                     </AccordionDetails>
-                    <p>User's Email: <a href={"#"} target={"_blank"}> {props.userEmail}</a> | {date} | {time}</p>
                 </Accordion>
         </div>
     )
