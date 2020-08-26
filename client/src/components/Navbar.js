@@ -133,7 +133,7 @@ function Navbar(props) {
               setToRestore={props.setToRestore}
               ticketsToShow={props.ticketsToShow}
               setTicketsToShow={props.setTicketsToShow}
-              allT ickets={props.allTickets}
+              allTickets={props.allTickets}
             />
           </Typography>
         </Toolbar>

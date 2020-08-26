@@ -73,4 +73,5 @@ Use a popular style guide - Airbnb
 - To show only Done projects Button - resets when click again
 - iconed Restore button 
 * checkbox - sets property "done" to a ticket. saves after refresh.
+* By clicking the lable you can see all the tickets with the same label
 * Tests for done/undone buttons

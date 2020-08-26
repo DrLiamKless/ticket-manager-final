@@ -26,7 +26,7 @@ body {
   margin-left: auto;
 }
 
-.additionsToBar{
+.labels{
   display: flex;
   margin-left: auto;
   align-items: center;  
@@ -37,6 +37,10 @@ body {
   background-color: #fccfcf;
   width: max-content;
   border-radius: 20%;
+}
+
+.label:hover{
+  background-color: #f08383;
 }
 
 

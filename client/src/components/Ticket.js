@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import HideButton from './HideButton';
 import CheckBox from './CheckBox';
+import Label from './Label';
 
 function Ticket(props) {
   const [display, setDisplay] = useState('flex');
@@ -75,11 +76,12 @@ function Ticket(props) {
               </Typography>
             )}
           />
-          <div className="additionsToBar">
-            {props.labels && props.labels.map((label, i) => (
-              <div key={i} className="label">{label}</div>
-            ))}
-          </div>
+          <Label 
+            labels={props.labels}
+            allTickets={props.allTickets}
+            setTicketsToShow={props.setTicketsToShow}
+            ticketsToShow={props.ticketsToShow}>
+          </Label>
           <HideButton
             numberOfHidden={props.numberOfHidden}
             setNumberOfHidden={props.setNumberOfHidden}
