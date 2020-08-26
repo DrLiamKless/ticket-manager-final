@@ -123,4 +123,20 @@ describe(projectName, () => {
     const elements = await page.$$('.ticket');
     expect(elements.length).toBe(mockData.length);
   })
+
+  // bonus - testing if "ShowDone" button works.
+  test('Can show only done tickets', async () => {
+    await page.click('#showDoneButton');
+  const elements = await page.$$('.ticket');
+  const doneTickets = mockData.filter(ticket=> (ticket["done"]))
+  expect(elements.length).toBe(doneTickets.length);
+  })
+
+    // bonus - testing if "ShowUndone" button works.
+    test('Can show only undone tickets', async () => {
+      await page.click('#showUndoneButton');
+    const elements = await page.$$('.ticket');
+    const undoneTickets = mockData.filter(ticket=> (!ticket["done"]))
+    expect(elements.length).toBe(undoneTickets.length);
+    })
 })

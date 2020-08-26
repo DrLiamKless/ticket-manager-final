@@ -14,7 +14,7 @@ function SortByDate(props) {
     
 
     return (    
-        <IconButton onClick={toSortByDate} id={"showDoneButton"}>
+        <IconButton onClick={toSortByDate} id={"sortByDate"}>
              <Badge badgeContent={0} color="secondary">
                 <DateRangeIcon>
                 </DateRangeIcon>

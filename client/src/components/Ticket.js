@@ -58,7 +58,7 @@ function Ticket(props) {
                                         {textDecoration: "none"}}>
                                         {props.title}
                                     </h4>
-                                    <p>From: <a href={"#"} target={"_blank"}> {props.userEmail}</a>
+                                    <p className={"craetionTime"}>From: <a href={"#"} target={"_blank"}> {props.userEmail}</a>
                                        | At: {date} | {time}
                                     </p>
                                 </Typography>}

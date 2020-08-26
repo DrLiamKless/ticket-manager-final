@@ -19,7 +19,7 @@ function ShowUndone(props) {
     
 
     return (    
-        <IconButton onClick={loadUndone} id={"showDoneButton"}>
+        <IconButton onClick={loadUndone} id={"showUndoneButton"}>
              <Badge badgeContent={props.undoneTickets.length} color="secondary">
                 <CloseIcon>
                 </CloseIcon>
