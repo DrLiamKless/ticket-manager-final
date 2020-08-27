@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './App.css';
 import Ticket from './components/Ticket';
 import Navbar from './components/Navbar';
+import './App.css';
 
 function App() {
   const [toRestore, setToRestore] = useState(false);
