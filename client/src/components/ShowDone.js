@@ -17,7 +17,8 @@ function ShowDone(props) {
   };
 
   return (
-    <IconButton onClick={loadDone} id="showDoneButton">
+    <IconButton onClick={loadDone} id="showDoneButton" className={"tooltip"}>
+    <span className={"tooltiptext"}>done list</span>
       <Badge badgeContent={props.doneTickets.length} color="secondary">
         <DoneIcon />
       </Badge>

@@ -11,7 +11,8 @@ function RestoreButton(props) {
   }
 
   return (
-    <IconButton onClick={restoreAll} id="restoreHideTickets">
+    <IconButton onClick={restoreAll} id="restoreHideTickets" className={"tooltip"}>
+            <span className={"tooltiptext"}>restore</span>
       <Badge>
         <RestoreIcon />
       </Badge>

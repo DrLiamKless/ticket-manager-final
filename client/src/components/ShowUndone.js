@@ -17,7 +17,8 @@ function ShowUndone(props) {
   };
 
   return (
-    <IconButton onClick={loadUndone} id="showUndoneButton">
+    <IconButton onClick={loadUndone} id="showUndoneButton" className={"tooltip"}>
+    <span className={"tooltiptext"}>undone list</span>
       <Badge badgeContent={props.undoneTickets.length} color="secondary">
         <CloseIcon />
       </Badge>
